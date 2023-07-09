@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(../img/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(../svg/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(../img/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(../svg/sun.svg);
+}
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 100%;
+  max-width: 36.75rem;
+  margin: 3.5rem auto 0rem;
+  padding: 0 1.5rem;
+}
+
+#profile {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+#profile .circle-image {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 0.1875rem solid var(--stroke-color);
+}
+
+#profile .circle-image img {
+  width: 7rem;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* switch */
+#switch {
+  position: relative;
+  width: 4rem;
+
+  margin: 0.25rem auto;
+}
+
+#switch button {
+  width: 2rem;
+  height: 2rem;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
+}
+
+.light #switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 0.5rem solid var(--highlight-color);
+}
+
+#switch span {
+  display: block;
+  width: 4rem;
+  height: 1.5rem;
+  background: var(--surface-color);
+  border: 0.0625rem solid var(--stroke-color);
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  border-radius: 624.9375rem;
+}
+
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1.5rem 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem 1.5rem;
+
+  background: var(--surface-color);
+  border: 0.0625rem solid var(--stroke-color);
+  border-radius: 0.5rem;
+
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 0.0938rem solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+
+  padding: 1.5rem 0;
+
+  font-size: 1.5rem;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 43.75rem) {
+  :root {
+    --bg-url: url(../img/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(../img/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
